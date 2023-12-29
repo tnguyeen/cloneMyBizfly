@@ -1,0 +1,598 @@
+@font-face {
+    font-family: Sarabun-Regular;
+    font-display: auto;
+    src: url(https://mingid.mediacdn.vn/vietid-golang/fonts/bizfly2020/Sarabun-Regular.ttf);
+}
+
+@font-face {
+    font-family: Sarabun-SemiBold;
+    font-display: auto;
+    src: url(https://mingid.mediacdn.vn/vietid-golang/fonts/bizfly2020/Sarabun-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Sarabun-Bold;
+    font-display: auto;
+    src: url(https://mingid.mediacdn.vn/vietid-golang/fonts/bizfly2020/Sarabun-Bold.ttf);
+}
+
+.font-Sarabun-Regular {
+    font-family: Sarabun-Regular;
+}
+
+.font-Sarabun-SemiBold {
+    font-family: Sarabun-SemiBold;
+}
+
+.font-Sarabun-Bold {
+    font-family: Sarabun-Bold;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.font22 {
+    font-size: 22px;
+}
+
+.font26 {
+    font-size: 26px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-83878a {
+    color: #83878a;
+}
+
+.text-21273d {
+    color: #21273d;
+}
+
+.text-424557 {
+    color: #424557;
+}
+
+.text-000000 {
+    color: #000;
+}
+
+.text-797979 {
+    color: #797979;
+}
+
+.text-danger {
+    color: #d93c3c;
+}
+
+.text-primary {
+    color: #0090ff;
+}
+
+.opacity-61 {
+    opacity: 0.61;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.btn:active,
+.btn:focus {
+    outline: none;
+}
+
+a {
+    color: #1393ff;
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background: transparent;
+    color: #6b6b6b;
+    font-size: 14px;
+    font-family: Sarabun-Regular;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input {
+    line-height: normal;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.clearfix:after,
+.clearfix:before {
+    display: table;
+    content: " ";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.m-b-5 {
+    margin-bottom: 5px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.m-b-40 {
+    margin-bottom: 40px;
+}
+
+.width7plus {
+    width: calc(100% + 7px);
+}
+
+.d-block {
+    display: block;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.error-message {
+    font-family: Sarabun-SemiBold;
+    margin-bottom: 20px;
+}
+
+.text-underline:hover {
+    text-decoration: underline;
+}
+
+.text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-control {
+    font-size: 14px;
+    font-family: Sarabun-Regular;
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    line-height: normal;
+    background-color: #fff;
+    color: #1d1d1d;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: #006cff;
+    outline: 0;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.form-control-warning,
+.form-control-warning:focus {
+    border-color: #d93c3c;
+}
+
+.btn {
+    height: 50px;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 3px;
+    margin-bottom: 0;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    box-shadow: 0 0 5px #8c8686;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-blue {
+    background: #0090ff;
+    color: #fff;
+    outline: none;
+}
+
+.btn-blue:focus,
+.btn-blue:hover {
+    background: #4171ec;
+    color: #fff;
+    outline: none;
+}
+
+.btn-icon-next span {
+    position: relative;
+}
+
+.btn-icon-next span:before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: -25px;
+    width: 15px;
+    height: 10px;
+    background: url(https://mingid.mediacdn.vn/vietid-golang/image/bizfly2020/shape3.png)
+        no-repeat;
+}
+
+.containe {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.containe input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.containe .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.containe:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.containe input:checked ~ .checkmark {
+    border-color: transparent;
+}
+
+.containe span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #2c2c2c;
+}
+
+.full-page {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1140px;
+    border-radius: 5px;
+    background: #fff;
+    -webkit-touch-callout: none;
+    display: flex;
+}
+
+.ipn-with-eye {
+    position: relative;
+}
+
+.ipn-with-eye input {
+    padding-right: 40px;
+}
+
+.ipn-with-eye .eye,
+.ipn-with-eye .eye2,
+.ipn-with-eye .eye3,
+.ipn-with-eye .eye4 {
+    cursor: pointer;
+    position: absolute;
+    top: 19px;
+    right: 10px;
+}
+
+.toggle {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.toggle + label {
+    position: relative;
+    background: silver;
+    width: 36px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    text-indent: 46px;
+    white-space: nowrap;
+}
+
+.toggle + label:after {
+    content: "";
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: left 0.3s ease-in-out, background 0.2s ease-in-out;
+}
+
+.toggle:checked + label {
+    background: linear-gradient(270deg, #26e0f5 0, #0e97ff);
+    background: -webkit-linear-gradient(right, #26e0f5, #0e97ff);
+}
+
+.toggle:checked + label:after {
+    left: calc(100% - 18px);
+}
+
+.ipn-with-eye-wrong input {
+    border-color: #c22727;
+}
+
+.ipn-with-eye-wrong input::-webkit-input-placeholder {
+    color: #c22727;
+}
+
+.ipn-with-eye-wrong input:-moz-placeholder,
+.ipn-with-eye-wrong input::-moz-placeholder {
+    color: #c22727;
+    opacity: 1;
+}
+
+.ipn-with-eye-wrong input:-ms-input-placeholder {
+    color: #c22727;
+}
+
+.avatar-bizfly {
+    border: 1px solid #ccc;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.avatar-bizfly img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.full-page-left {
+    width: 570px;
+    border-right: 1px solid #e8ecfb;
+    padding: 0 50px 0 70px;
+    margin: 60px 0 40px;
+}
+
+.full-page-left .line1 {
+    margin: 15px auto 30px;
+    background: #e5e5e5;
+    width: 50px;
+    height: 1px;
+}
+
+.full-page-left .xhd {
+    position: relative;
+}
+
+@media screen and (max-width: 1100px) {
+    .full-page-left {
+        display: none;
+    }
+}
+
+.full-page-right {
+    padding: 0 50px 0 70px;
+    margin: 40px 0;
+    width: 100%;
+    position: relative;
+}
+
+.mob-login {
+    padding: 20px;
+    display: none;
+}
+
+.mob-login-small-logo {
+    width: 60px;
+    position: relative;
+    top: 4px;
+    left: 9px;
+}
+
+.forgot-pass-group a {
+    display: inline-block;
+    padding: 3px 20px;
+}
+
+.forgot-pass-group .right {
+    border-left: 1px solid #ccc;
+}
+
+.login-by {
+    bottom: 20px;
+}
+
+.copyright,
+.login-by {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.copyright {
+    bottom: 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .full-page-right {
+        padding: 0 20px;
+        margin: 30px 0;
+    }
+
+    .mob-login {
+        display: block;
+    }
+
+    .copyright,
+    .login-by,
+    .login-by-mobile {
+        display: none;
+    }
+}
+
+.list-account {
+    max-height: 228px;
+    overflow-y: auto;
+    padding-right: 7px;
+}
+
+.list-account::-webkit-scrollbar,
+.list-account::-webkit-scrollbar-track {
+    border-radius: 50px;
+    background-color: #f2f2f2;
+}
+
+.list-account::-webkit-scrollbar {
+    width: 6px;
+}
+
+.list-account::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #828282;
+}
+
+.item-account {
+    padding: 10.5px 10px;
+    display: flex;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+.item-account:last-child {
+    margin-bottom: 0;
+}
+
+.item-account > img {
+    width: 45px;
+    height: 45px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.wrapper-info-account h5 {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
+    color: #000;
+}
+
+.wrapper-info-account p {
+    font-size: 14px;
+    line-height: 18px;
+    color: #888;
+}
+
+.wrapper-info-account img {
+    position: absolute;
+    right: 14px;
+    top: 23px;
+}
+
+.logo {
+    position: relative;
+}
+
+.wrap-back {
+    display: inline-block;
+}
+
+.icon-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.full-page-left .xhd:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: -11px;
+    width: 6px;
+    height: 11px;
+    background: url(https://mingid.mediacdn.vn/vietid-golang/image/bizfly2020/shape1.png);
+}
+
+/*# sourceMappingURL=main.c3a7fdb0.chunk.css.map */
