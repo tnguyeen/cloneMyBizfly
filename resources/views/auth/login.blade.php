@@ -1,4 +1,5 @@
-@extends('layouts.fullPage') @section('content')
+@extends('layouts.fullPage') @section('title') Login @endsection
+@section('content')
 <div class="container">
     <div
         class="row d-flex justify-content-center align-items-center"
@@ -65,23 +66,33 @@
                             class="text-danger m-b-20 font-Sarabun-SemiBold"
                         ></div>
                         <div class="m-b-20" id="loginForm">
-                            <label class="m-b-5 d-block"
+                            <label class="m-b-5 d-block" for="usernameInput"
                                 >Nhập email hoặc sđt</label
                             ><input
                                 placeholder="Nhập Email hoặc SĐT tài khoản VietID của bạn"
                                 name="account"
-                                type="text"
-                                class="form-control"
-                                id="userInput"
+                                type="email"
+                                class="form-control m-b-20"
+                                id="usernameInput"
+                                value=""
+                            />
+                            <label class="m-b-5 d-block" for="passwordInput"
+                                >Nhập mật khẩu</label
+                            ><input
+                                placeholder="Nhập mật khẩu"
+                                name="password"
+                                type="password"
+                                class="form-control m-b-20"
+                                id="passwordInput"
                                 value=""
                             />
                         </div>
                         <div class="m-b-20">
                             <button
                                 class="btn btn-block btn-primary font-Sarabun-Bold font16"
-                                id="btnNext"
+                                id="btnLogin"
                             >
-                                Tiếp tục
+                                Đăng nhập
                             </button>
                         </div>
                     </div>
@@ -120,91 +131,37 @@
 @endsection @section('page-script')
 <script type="text/javascript">
     let dataLogin = {
-        username: "",
+        email: "",
         password: "",
     };
-    function next() {
-        const html = `<div class="text-center m-b-10">
-            <div class="avatar-bizfly">
-                <img src="https://mingid.mediacdn.vn/vietid-golang/image/bizfly2020/no-avatar.png" id="avatar-user">
-            </div>
-        </div>
-        <p class="text-center font-Sarabun-SemiBold m-b-20 font16">${dataLogin.username}</p>
-        <div id="enterPasswordForm">
-            <div class="m-b-20">
-                <label class="m-b-5 d-block">Nhập mật khẩu</label>
-                <div class="ipn-with-eye"><input placeholder="Nhập mật khẩu của bạn" name="password" id="passwordInput" type="password" class=" form-control" value="">
-                    <img src="https://mingid.mediacdn.vn/vietid-golang/image/bizfly2020/eye.png" class="eye">
-                </div>
-            </div>
-            <div class="m-b-20">
-                <div class="clearfix"></div>
-                <div class="float-right m-b-20">
-                    <a href="/oauth/bizfly2020/login/forgotPassword" style="text-decoration:none">Quên mật khẩu?</a>
-                </div>
-            </div>
-        </div>`;
-        $("#loginForm").replaceWith(html);
-        $("#belowLink").html(`Đăng nhập bằng  
-                <a href="/login" style="text-decoration: none">
-                    Tài khoản khác
-                </a>`);
-        $("#btnNext").html("Đăng nhập bằng ViệtID");
-        $("#btnNext").attr("id", "btnLogin");
-    }
 
     $(document).ready(function () {
-        $("#btnNext").on("click", function () {
-            if (dataLogin.username == "") {
-                $("#userError").html(`Vui lòng nhập tài khoản`);
-                return;
-            }
-            axios({
-                method: "get",
-                url: "/api/getUser",
-                params: {
-                    username: dataLogin.username,
-                },
-            })
-                .then(function (response) {
-                    if (response.data.length == 0) {
-                        $("#userError").html(
-                            `Tài khoản không tồn tại. Vui lòng nhập tài khoản khác hoặc tạo một tài khoản mới`
-                        );
-                        return;
-                    }
-                    next();
-                    $("#userError").html(``);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        });
         $(this).on("click", "#btnLogin", function () {
-            if (dataLogin.password == "") {
-                $("#userError").html(`Vui lòng nhập mật khẩu!`);
-                return;
-            }
             axios({
-                method: "get",
-                url: "/api/login",
+                method: "post",
+                url: "/api/auth/login",
                 params: dataLogin,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
+                },
             })
                 .then(function (response) {
                     const res = response.data;
                     if (res.result) {
-                        alert("Đăng nhập thành công!");
+                        window.location.assign("/home");
                     } else {
-                        $("#userError").html(res.data);
-                        return;
+                        $("#userError").html(res.message);
                     }
                 })
                 .catch(function (error) {
                     console.log(error);
+                    $("#userError").html(error.response.data.message);
                 });
         });
-        $(this).on("change", "#userInput", function () {
-            dataLogin.username = $(this).val();
+        $(this).on("change", "#usernameInput", function () {
+            dataLogin.email = $(this).val();
         });
         $(this).on("change", "#passwordInput", function () {
             dataLogin.password = $(this).val();

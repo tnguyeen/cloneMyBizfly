@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <title>{{ config("app.name", "Laravel") }}</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.bunny.net" />
@@ -26,7 +26,13 @@
         <div id="app" style="height: 100vh">
             <main
                 class="d-flex justify-center align-center"
-                style="height: 100%; width: 100%"
+                style="
+                    height: 100%;
+                    width: 100;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                "
             >
                 @yield('content')
             </main>

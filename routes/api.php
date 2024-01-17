@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,23 +21,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getUser', function (Request $request) {
-    $user = DB::select('select username from user where username = ?', [$request->username]);
-    return $user;
+
+Route::group(['prefix' => 'auth','middleware' => ['web']], function() {
+    Route::controller(AuthController::class)->group(function () {
+        Route::post('login', 'login');
+        Route::get('login', 'getLogin');
+        Route::post('logout', 'logout');
+    });
 });
 
-Route::get('/login', function (Request $request) {
-    $user = DB::select('select * from user where username = ?', [$request->username]);
-    if($user[0]->password == $request->password){
-        return response([
-            'result' => true,
-            'data' => $user
-        ]);
-    } else{
-        return response([
-            'result' => false,
-            'data' => 'Sai mật khẩu!'
-        ]);
-    }
-    
+Route::group(['prefix' => 'user','middleware' => ['web']], function() {
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/aa', 'create');
+        Route::post('create', 'create');
+        Route::post('logout', 'logout');
+    });
 });

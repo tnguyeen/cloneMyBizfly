@@ -596,3 +596,24 @@ input {
 }
 
 /*# sourceMappingURL=main.c3a7fdb0.chunk.css.map */
+.modal-backdrop {
+    background-color: #00000083 !important;
+}
+*:hover {
+    text-decoration: none !important;
+}
+.dropdown-item,
+.menu-item {
+    transition: ease;
+    transition-duration: 0.3s !important;
+}
+.dropdown-item:hover {
+    background-color: #0d6efd !important;
+}
+.menu-item:hover {
+    transform: translateX(10px);
+}
+a {
+    text-decoration: none !important;
+    color: #000 !important;
+}
